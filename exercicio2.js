@@ -1,6 +1,3 @@
-// Faça o exercício da galeria de imagens aqui
-// Este arquivo ainda não está incluído no arquivo HTML
-
 const servidorDasImagens = 'https://fegemo.github.io/cefet-web/images/',
   todasAsImagens = [
     'philae-parts.jpg',
@@ -9,3 +6,31 @@ const servidorDasImagens = 'https://fegemo.github.io/cefet-web/images/',
     'philae-67-picture.jpg',
     'philae-collecting.jpg'
   ];
+
+let slider = function(Index){
+	let slide = document.getElementById('slide')
+	let srcImage  = servidorDasImagens + todasAsImagens[Index];
+	slide.src = srcImage;
+};
+
+let index = 0;
+slider(index);
+
+let next = document.getElementById('proximo');
+	next.addEventListener('click', function(e){
+		index++;
+		if (index == 5){
+			index =0;
+		}
+		slider(index);
+	});
+
+
+let previous = document.getElementById('anterior');
+	previous.addEventListener('click', function(e){
+		index--;
+		if (index == -1){
+			index = 4;
+		}
+		slider(index);
+	});
